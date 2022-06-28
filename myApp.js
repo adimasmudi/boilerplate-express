@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 require('dotenv').config()
 
-
+process.env.MESSAGE_STYLE='uppercase';
 
 // console.log("Hello World")
 app.get('/',function(req, res){
