@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 require('dotenv').config()
 
-process.env.MESSAGE_STYLE
+
 
 // console.log("Hello World")
 app.get('/',function(req, res){
@@ -13,6 +13,8 @@ app.get('/',function(req, res){
 app.get('/json', function(req, res){
     res.json({"message": "Hello json"})
 })
+
+process.env.MESSAGE_STYLE;
 
 
 
