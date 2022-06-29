@@ -1,6 +1,9 @@
 let express = require('express');
 let app = express();
 require('dotenv').config()
+let bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({extended:false}))
 
 process.env.MESSAGE_STYLE='uppercase';
 
