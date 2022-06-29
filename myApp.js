@@ -4,12 +4,11 @@ require('dotenv').config()
 
 process.env.MESSAGE_STYLE='uppercase';
 
-function middleware(req, res, next){
-    console.log(req.method)
-    console.log(req.path)
-    console.log(req.ip)
+app.use(function middleware(req, res, next){
+    var string = req.method + " " + req.path + " - " + req.ip;
+    console.log(string)
     next()
-}
+})
 
 // console.log("Hello World")
 app.get('/',function(req, res){
@@ -17,7 +16,7 @@ app.get('/',function(req, res){
     res.sendFile(__dirname + '/views/index.html')
 })
 
-app.get('/json',middleware, (req, res) => {
+app.get('/json', (req, res) => {
     let message = 'Hello json';
     (process.env.MESSAGE_STYLE == 'uppercase') ? message=message.toUpperCase() : message=message; res.json({'message': message});
     });
